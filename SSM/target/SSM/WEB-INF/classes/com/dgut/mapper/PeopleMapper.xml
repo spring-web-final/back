@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dgut.mapper.PeopleMapper">
+
+    <select id="getRecords" resultType="com.dgut.domain.People">
+        select * from people
+    </select>
+
+    <select id="getCount" resultType="int">
+        SELECT COUNT(*) from people
+    </select>
+
+    <select id="findById" resultType="com.dgut.domain.People">
+        select * from people where id=#{id}
+    </select>
+
+    <select id="findByName" resultType="com.dgut.domain.People">
+        select * from people where name=#{name}
+    </select>
+
+    <select id="getCountByName" resultType="int">
+        select count(*) from people where name=#{name}
+    </select>
+
+    <select id="findByPhone" resultType="com.dgut.domain.People">
+        SELECT * from people where phone=#{phone}
+    </select>
+
+    <select id="getCountByTime" resultType="int">
+        select count(*) from people where DATE_FORMAT(time,'%Y%m%d')=#{time}
+    </select>
+    
+    <select id="findByTime" resultType="com.dgut.domain.People">
+        SELECT * from people where DATE_FORMAT(time,'%Y%m%d')=#{time}
+    </select>
+
+    <insert id="insertUser" useGeneratedKeys="true" keyProperty="id"
+            parameterType="com.dgut.domain.People">
+        insert into people(name,sex,phone,flight,train,time,wid) values (#{name},#{sex},#{phone},#{flight},#{train},#{time},#{wid})
+    </insert>
+
+
+</mapper>
