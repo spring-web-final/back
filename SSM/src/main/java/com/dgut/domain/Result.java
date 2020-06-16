@@ -1,10 +1,5 @@
 package com.dgut.domain;
 
-import com.sun.org.apache.regexp.internal.RE;
-import org.springframework.stereotype.Component;
-
-
-
 public class Result {
 
     private int resCode;
